@@ -8,17 +8,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Weather Dashboard</h1>
+        <div class="container-fluid mainCon">
+            <dic class="row">
+                <div class="col-12 col-md-3 col-xl-3 colOne">
+                    <label>Enter a City</label>
 
-<div class="input">
-    <input type="text" class="inputValue" placeholder="Enter a city">
-    <input type="submit" value="Submit" class="button">
-</div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control textVal" placeholder="Lubbock...">
+                        <div class="input-group-append btnPar">
+                            <button class="btn btn-primary search" tpye="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
 
-<div class="display">
-    <h1 class="name"></h1>
-    <p class="desc"></p>
-    <p class="temp"></p>
-</div>
+                    <div class=" container cityHistory"></div>
+
+                </div>
+                <div class="col-12 col-md-9 col-xl-9 colTwo">
+                    <div class="row today">
+                        <div class="car bg-light mb-3" style="max-width:400px;">
+                        <h2 class="card-header cardTodayCityName"></h2>
+                        <h3 class="card-header cardTodayDate"></h3>
+                        <img class="icons"/>
+                        <div class="card-body cardBodyToday">
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="row fiveForecast"></div>
+                </div>
+            </dic>
+        </div>
+
+        
 
 <script src="script.js"></script>
 </body>

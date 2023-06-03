@@ -1,21 +1,51 @@
-var button = document.querySelector('.button')
-var inputValue = document.querySelector('.inputValue')
-var name = document.querySelector('.name');
-var desc = document.querySelector('.desc');
-var temp = document.querySelector('.temp');
+var key = 'a17fdc4c9b073b818693294055558b05'; //api key
+var city = "Lubbock" 
 
-button.addEventListener('click', function(){
-    fetch('https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=a17fdc4c9b073b818693294055558b05')
-    .then(response => response.json())
-    .then(data => {
-        var nameValue = data['name'];
-        var tempValue = data['main']['temp'];
-        var descValue = data['weather'][0]['description'];
+//Gets current time and date
+var date = moment().format('dddd, MMMM Do YYYY');
+var dateTime = moment().format('YYYY-MM-DO HH:MM:SS')
 
-        name.innerHTML = nameValue;
-        temp.innerHTML = tempValue;
-        desc.innerHTML = descValue;
-})
+var cityHistory = [];
+//Will save to local storage
+$('.search').on("click", fucntion(Event) {
+    Event.preventDefault();
+    city = $(this).parent('.btnPar').siblings('.textVal').val().trim();
+    if (city === ""){
+        return;
+    };
+    cityHistory.push(city);
 
-.catch(err => alert("Wrong city name!"))
-})
+    localStorage.setItem('city', JSON.stringify(cityHistory));
+    fiveForecastEl.empty();
+    getHistory();
+    getWeatherToday();
+});
+
+//will create buttons based on search history
+var contHistEl = $('.cityHistory');
+function getHistory() {
+    constHistEl.empty();
+
+    for (let i = 0; i < cityHistory.length; i++) {
+
+        var rowEl = $('<row>');
+        var btnEl = $('<button>').text(`${cityHIstory[i]}`)
+
+        rowEl.addClass('row histBtnRow');
+        btnEl.addClass('btn btn-outline-secondary histBtn');
+        btnEl.attr('type', 'button');
+
+        constHistEl.prepend(rowEl);
+        rowEl.append(btnEl);
+    } if (!city) {
+        return;
+    }
+    //allows buttons to start a search as well
+        $(`.histBtn`).on("click", function (event) {
+            event.preventDefault();
+            city = $(this).text();
+            fiveForecastEl.empty();
+            getWeatherToday();
+        });
+    };
+    
