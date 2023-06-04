@@ -1,14 +1,15 @@
-var key = 'a17fdc4c9b073b818693294055558b05'; //api key
-var city = "Lubbock" 
+var key = 'a17fdc4c9b073b818693294055558b05'; //api key 
+
+var city = "Lubbock"; 
 
 //Gets current time and date
 var date = moment().format('dddd, MMMM Do YYYY');
-var dateTime = moment().format('YYYY-MM-DO HH:MM:SS')
+var dateTime = moment().format('YYYY-MM-DO HH:MM:SS');
 
 var cityHistory = [];
 //Will save to local storage
-$('.search').on("click", fucntion(Event) {
-    Event.preventDefault();
+$('.search').on("click", function(event) {
+    event.preventDefault();
     city = $(this).parent('.btnPar').siblings('.textVal').val().trim();
     if (city === ""){
         return;
@@ -53,7 +54,8 @@ function getHistory() {
     var cardTodayBody = $(`.cardBodyToday`)
     //Applies the weather data to the today card and will then launch a five day forecast
     function getWeatherToday() {
-        var getUrlCurrent = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${key}';
+        var getUrlCurrent = `https://api.openweathermap.org/data/2.5/weather?q=${Lubbock}&units=imperial&appid=${a17fdc4c9b073b818693294055558b05
+    }`;
 
         $(cardTodayBody).empty();
 
@@ -83,7 +85,8 @@ function getHistory() {
             var cityLat = response.coord.lat;
             // console.log(cityLat);
 
-            var getUrlUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,daily,minutely&appid=${key}`;
+            var getUrlUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,daily,minutely&appid=${a17fdc4c9b073b818693294055558b05
+        }`;
 
             $.ajax({
                 url: getUrlUvi,
@@ -114,11 +117,12 @@ function getHistory() {
         var fiveForecastEl = $(`.fiveForecast`);
 
         function getFiveDayForecast( {
-            var getUrlFiveDay = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${key}`;
+             getUrlFiveDay = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${a17fdc4c9b073b818693294055558b05
+            }`
 
-            $.ajax({
+            .ajax({
                 url: getUrlFiveDay,
-                method: 'GET',
+                method: `GET`,
             }).then(function (response) {
                 var fiveDayArray = response.list;
                 var myWeather = [];
@@ -131,8 +135,7 @@ function getHistory() {
                         feels_like: value.main.feels_like,
                         icon: value.weather[0].icon,
                         humidity: value.main.humidity
-                    }
-
+                }
 
 
                     if (value.dt_txt.split(' ')[1] === "12:00:00") {
@@ -144,7 +147,7 @@ function getHistory() {
 
                     var divElCard = $(`<div>`);
                     divElCard.attr('class', 'card text-white bg-primary mb-3 cardOne');
-                    divElCard.attr('style', 'max-width: 200px;');
+                    divElCard.attr('style', 'max-width: 200px');
                     fiveForecastEl.append(divElCard);
 
                     var divElHeader = $('<div>');
@@ -172,7 +175,6 @@ function getHistory() {
                     divElBody.append(pElHumid);
                 }
             });
-        };
 
         function initLoad() {
 

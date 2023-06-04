@@ -1,78 +1,44 @@
 h1 {
     background-color: darkgray;
     text-align: center;
-    
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
-
 label {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-top: 10px;
     font-weight: bold;
     font-size: 20px;
 }
-
 .card {
-    text-align: center;
-    margin: 10px 0;
+    margin: 10px;
 }
-
 .colOne {
-    height: 50px;
-    width: 600px;
-    background: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    border: none;
-    border-radius: 2px;
-    padding: 10px 10px;
+    background-color: white;
 }
-
 .colTwo {
-    height: 50px;
-    width: 600px;
-    background: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-    border: none;
-    border-radius: 2px;
+  background-color: rgb(157, 189, 202);
 }
-
 .histBtnRow {
     margin-top: 5px;
     margin-bottom: 5px;
-    text-align: center;
 }
-
 .green{
     background-color: lightgreen;
 }
-
 .yellow{
     background-color: yellow;
 }
-
 .orange{
     background-color: orange;
 }
-
 .red{
     background-color: red;
 }
-
 .purple{
     background-color: purple;
 }
-
 .icons {
     height: 70px;
     width: 70px;
 }
-
 .cardTodayDate {
     font-size: 20px;
 }
